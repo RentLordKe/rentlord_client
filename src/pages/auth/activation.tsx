@@ -5,11 +5,9 @@ import { Alert, Button, Center, Container, Stack } from '@mantine/core';
 import { IconCheck, IconAlertCircle } from '@tabler/icons';
 
 import MainLayout from '../../layouts/mainLayout/mainLayout';
-import { useActivateUser } from '../../features/authentication/hooks/useActivateUser';
 import successImage  from '../../assets/success.jpg';
 
 const ForgotPass: NextPage = () => {
-    const { buttonClicked, response, onClick } = useActivateUser();
   return (
     <>
       <Head>
@@ -19,7 +17,7 @@ const ForgotPass: NextPage = () => {
       </Head>
       <MainLayout>
         <Container>
-            {response === 'success' ? (
+            {/* {response === 'success' ? (
                 <Stack justify="center">
                         {buttonClicked ? '' : (
                             <Image 
@@ -40,7 +38,7 @@ const ForgotPass: NextPage = () => {
                      Account Activation Failed. <br /> Reason: {response} <br />
                      <Button color="dark" mt="lg" onClick={onClick} loading={ !response? true : false }>Resend Activation Link</Button>
                 </Alert>
-            ): ''}
+            ): ''} */}
         </Container>
       </MainLayout>
     </>
