@@ -2,12 +2,10 @@ import React, { ReactNode, useState } from 'react';
 import {
   Anchor,
   AppShell,
-  Box,
   Burger,
   Header,
   MediaQuery,
   Navbar,
-  useMantineColorScheme
 } from "@mantine/core";
 import { useViewportSize } from '@mantine/hooks';
 import Image from 'next/image';
@@ -26,15 +24,13 @@ const MainLayout = ({ children }: Props) => {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
 
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const dark = colorScheme === 'dark';
-
   const router = useRouter();
   const { width } = useViewportSize();
 
   return (
     <AppShell
         navbarOffsetBreakpoint="sm"
+        fixed
         header = {
         <Header height="120px" className={`${classes.headerBackground}`} withBorder>
           <MediaQuery largerThan="sm" styles={{ display: "none" }}>
@@ -73,10 +69,9 @@ const MainLayout = ({ children }: Props) => {
               <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : "" }`} href="/about">About</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : "" }`} href="/find-a-home">Find a home</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : "" }`} href="/faq">FAQ</Anchor>
-              <Anchor className={`${classes.navitem} ${router.pathname === "/contact" ? classes.active : "" }`} href="/contact">Contact Us</Anchor>
             </div>
             <div className={classes.links}>
-              <Anchor className={`${classes.navitem} ${classes.requestdemo} ${router.pathname === "/request-demo" ? classes.activeRequestdemo : "" }`} href="/request-demo" >Request Demo</Anchor>
+              <Anchor target="_blank" className={`${classes.navitem} ${classes.requestdemo} ${router.pathname === "/request-demo" ? classes.activeRequestdemo : "" }`} href="https://docs.google.com/forms/d/e/1FAIpQLSdcoozgK80RlQc8AuO4vzq1NlgnSQv203wtThsrQqtvNMYAQA/viewform?usp=sf_link" >Request Demo</Anchor>
               <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/sign-in" ? classes.activeSignIn : "" }`} href="/auth/sign-in">Sign In</Anchor>
             </div>
           </div>
@@ -91,8 +86,7 @@ const MainLayout = ({ children }: Props) => {
             <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : "" }`} href="/about">About</Anchor>
             <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : "" }`} href="/find-a-home">Find a home</Anchor>
             <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : "" }`} href="/faq">FAQ</Anchor>
-            <Anchor className={`${classes.navitem} ${router.pathname === "/contact" ? classes.active : "" }`} href="/contact">Contact Us</Anchor>
-            <Anchor className={`${classes.navitem} ${classes.requestdemo} ${router.pathname === "/request-demo" ? classes.activeRequestdemo : "" }`} href="/request-demo" >Request Demo</Anchor>
+            <Anchor target="_blank" className={`${classes.navitem} ${classes.requestdemo} ${router.pathname === "/request-demo" ? classes.activeRequestdemo : "" }`} href="/https://docs.google.com/forms/d/e/1FAIpQLSdcoozgK80RlQc8AuO4vzq1NlgnSQv203wtThsrQqtvNMYAQA/viewform?usp=sf_link" >Request Demo</Anchor>
             <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/sign-in" ? classes.activeSignIn : "" }`} href="/auth/sign-in">Sign In</Anchor>
         </Navbar>}
     >

@@ -22,7 +22,6 @@ const Faq: NextPage = () => {
       </Head>
       <MainLayout>
         <Container mt={120}>
-          <Paper p="xl">
             <Stack>
               <Center>
                 <Image
@@ -43,24 +42,23 @@ const Faq: NextPage = () => {
                     }}
                 >
                     <Accordion.Item value="How do I enroll to Luddoc">
-                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>How do I enroll to Luddoc?</Accordion.Control>
+                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>Why use Rentlord?</Accordion.Control>
                         <Accordion.Panel>All it takes to enroll to luddoc is to register, select a course and get started</Accordion.Panel>
                     </Accordion.Item>
                     <Accordion.Item value="How long does it take to complete a course">
-                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>How long does it take to complete a course?</Accordion.Control>
+                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>Is Rentlord Secure?</Accordion.Control>
                         <Accordion.Panel>Our courses are self-paced but we encourage our students to be consistent so as to finish a course on time</Accordion.Panel>
                     </Accordion.Item>
                     <Accordion.Item value="How many courses can one enroll to at a given time">
-                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>How many courses can one enroll to at a given time?</Accordion.Control>
+                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>How many properties can I manage using Rentlord?</Accordion.Control>
                         <Accordion.Panel>You can enroll to as many courses as you wish but we encourage our students not to enroll to another course before completing the previous course</Accordion.Panel>
                     </Accordion.Item>
                     <Accordion.Item value="Will I get a certificate upon completion of a course?">
-                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>Will I get a certificate upon completion of a course?</Accordion.Control>
+                        <Accordion.Control style={{color: `${colors.primaryColor}`}}>How many managers can a property owner have?</Accordion.Control>
                         <Accordion.Panel>Yes, you will receive a digital copy of your certificate upon completion of a course </Accordion.Panel>
                     </Accordion.Item>
                 </Accordion>
             </Stack>
-          </Paper>
         </Container>
         <Box>
             <FooterLinks data={footerData}/>

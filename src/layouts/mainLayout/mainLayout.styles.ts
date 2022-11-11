@@ -32,8 +32,7 @@ export const useStyles = createStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
         height: "120px",
-        width: "100%",
-        margin: 0
+        width: "105%",
     },
     darkBackground: {
         background: theme.colors.dark[7],
@@ -49,7 +48,10 @@ export const useStyles = createStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
         height: "120px",
-        maxWidth: "1600px"
+        maxWidth: "1600px",
+        [theme.fn.largerThan("lg")]: {
+           minWidth: 1350
+         },
     },
 
     headerBackground: {
@@ -74,6 +76,11 @@ export const useStyles = createStyles((theme) => ({
     },
 
     navbar: {
+        position:"absolute",
+        top: 160,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
         [theme.fn.largerThan("sm")]: {
           display: "none"
         },

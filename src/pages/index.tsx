@@ -9,6 +9,7 @@ import { colors } from '../constants/colors';
 import map from '../assets/map.png';
 import FooterLinks from '../components/footer/footer';
 import { footerData } from '../constants/footer';
+import { useViewportSize } from '@mantine/hooks';
 
 const useStyles = createStyles((theme) => ({
   cardWidth: {
@@ -33,7 +34,6 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-
   heading: {
     fontSize: '35px',
     fontWeight: 500,
@@ -42,6 +42,13 @@ const useStyles = createStyles((theme) => ({
   headingTwo: {
     fontSize: '30px',
     fontWeight: 500
+  },
+
+  primaryBackground: {
+    background: `${colors.primaryColor}`,
+    margin:0,
+    padding:0,
+    width: "105%"
   },
 
   primaryText : {
@@ -64,6 +71,7 @@ const useStyles = createStyles((theme) => ({
 
 const Home: NextPage = () => {
   const { classes } = useStyles();
+  const { width } = useViewportSize();
   return (
     <>
       <Head>
@@ -72,41 +80,40 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <Box component='div' style={{background: 'white'}}>
           <Container mt={170}>
             <Grid gutter={40}>
               <Grid.Col md={6}>
                 <Text className={classes.heading}>The "<span className={classes.primaryText}><span className={classes.secondaryText}>P</span>roperty <span className={classes.secondaryText}>M</span>anagement <span className={classes.secondaryText}>S</span>oftware</span>" you have always been looking for !!</Text>
-                <Text mt="md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dolor tortor, porta in varius in, facilisis in dui. Phasellus euismod pretium mollis. Donec quis mi eget dui venenatis venenatis at quis erat. Nunc eget lobortis dolor, in porttitor lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam facilisis felis non sem consequat luctus. Curabitur hendrerit eros non leo porta tempus. </Text>
+                <Text mt="md">Rental management can be a very tedious task from record keeping to sorting out your tenant’s data. At rentlord we are handing over the powers of automation right from automated rent collections, accounting & reconciliation, SMS notifications, tenants shifting, deposit managements among other features. <br />
+                The solution is packed in a web & mobile based platform to ease the entire management process at the comfort of your seat from anywhere in the world with zero paper work. Oh! If you need paper work you just print out every data at our accounting/data analysis section on the platform well-tailored to filter and get any form of data in relation to your rentals.  </Text>
                 <Text mt="md">Don't wait, start using RentLord Today</Text>
-                <Anchor href='/courses' className={classes.demoButton}>Request Demo</Anchor>
+                <Anchor href='https://docs.google.com/forms/d/e/1FAIpQLSdcoozgK80RlQc8AuO4vzq1NlgnSQv203wtThsrQqtvNMYAQA/viewform?usp=sf_link' target="_blank" className={classes.demoButton}>Request Demo</Anchor>
               </Grid.Col>
               <Grid.Col md={6}>
                 <Center>
                   <Image 
                     src="/hero.svg"
-                    height={550}
-                    width={500}
+                    height={width >= 768 ? 550 : 420}
+                    width={width >= 768 ? 500 : 310}
                     alt="hero image"
                   />
                 </Center>
               </Grid.Col>
             </Grid>
           </Container>
-        </Box>
-        <Box component='div'>
           <BackgroundImage
-            src="/primarywave.svg"
+            src={width >= 768 ? "/primarywave.svg" : ""}
             radius="md"
-            component="div"
-            style={{width: "100%"}}
+            component="div" 
+            className={width <=768 ? `${classes.primaryBackground}` : ""}
           >
             <Container  className={classes.whiteText} >
               <Center>
-                <Text className={`${classes.heading} ${classes.secondaryText}`} mt={140}>WHY RENTLORD?</Text>
+                <Text className={`${classes.heading} ${classes.secondaryText}`} mt={width >= 768 ? 140 : 50}>WHY RENTLORD?</Text>
               </Center>
               <Text my="xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus. Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non, tempus a enim. Mauris cursus, risus eleifend auctor pharetra, est mauris luctus massa, at ullamcorper eros lorem vel nunc. Aenean et ornare risus. Vivamus eleifend odio quam, sed sagittis risus faucibus eu. Aliquam aliquam et ex in eleifend. Morbi ac leo sit amet dolor laoreet aliquam quis eget ligula.
+              It offers a seamless accounting system for your property without the cumbersome follow up of paper trail. It also eases up on the inspection and on-time maintenance of Tennant queries – so tenants issues are attended to with haste. 
+              Full control of management any time and from anywhere, it will also give data on vacant houses, which ones are paid and which ones are not, provide SMS alerts as well as a comprehensive accounting report
               </Text>
               <Grid gutter="xl" my="xl">
                 <Grid.Col md={5}>
@@ -121,13 +128,14 @@ const Home: NextPage = () => {
                 </Grid.Col>
                 <Grid.Col md={7}>
                   <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Manage Property</Text>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non.</Text>
+                  <Text>There is nothing like a slow operation day in property management and with the things you have to do each day it could make your management life less stressful and enjoyable with a dedicated management system, take charge and flow with the digital ways of management. Take Control!</Text>
                 </Grid.Col>
               </Grid>
               <Grid gutter="xl" my="xl">
                 <Grid.Col md={7}>
                   <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Automated Payments</Text>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non.</Text>
+                  <Text>Payment can be done through various payments platforms from MPESA, KCB and Equity bank. All payments made are automated and can allow the owner to filter payments made and those that are not made and what arrears are pending. 
+                  Every payment is accompanied with a receipt message to acknowledge rent receipt for the said month so that each client can also have data/feedback all along during his/time at the apartment</Text>
                 </Grid.Col>
                 <Grid.Col md={5}>
                  <Center>
@@ -153,13 +161,14 @@ const Home: NextPage = () => {
                 </Grid.Col>
                 <Grid.Col md={7}>
                   <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Automated SMS Reminders</Text>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non.</Text>
+                  <Text>The feature enables you or your management team to make bulk and customized messages to your tenants, right from rent payment reminders, any news such as – water outage, power, rental increments, garbage collections and much more – Ease communications with just a press of a single button.</Text>
                 </Grid.Col>
               </Grid>
               <Grid gutter="xl" my="xl">
                 <Grid.Col md={7}>
                   <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Maintenance and Operations</Text>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non.</Text>
+                  <Text>With easy access to our platform the tenant can directly request for maintenance through the app, this will in turn allow the management team to attend to the requests and supervise that the maintenance is done on time. 
+                The property owner can now keep trial of all the maintenance done as well as the expenses on each for better record keeping and accounting.</Text>
                 </Grid.Col>
                 <Grid.Col md={5}>
                  <Center>
@@ -184,14 +193,12 @@ const Home: NextPage = () => {
                  </Center>
                 </Grid.Col>
                 <Grid.Col md={7}>
-                  <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Rent Reconciliation & Reports</Text>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod neque ac mollis dictum. Vivamus euismod sed lacus hendrerit elementum. Mauris rhoncus urna et augue aliquet, suscipit tincidunt arcu placerat. Aenean magna neque, finibus ac velit nec, mollis egestas purus Integer ornare felis eget sem eleifend, in ultrices metus sollicitudin. Cras ultricies sapien in est egestas, eleifend iaculis est porta. Praesent libero ligula, faucibus nec placerat non.</Text>
+                  <Text className={`${classes.headingTwo} ${classes.secondaryText}`} mt={40}>Rental Application</Text>
+                  <Text>We provide an additional app for your tenants where they can make quick and formal requests to your management team, right from vacation requests – pending the allowed person to approve, shifting to other one of your apartments, maintenance and repair as well other relevant communications that would be deemed necessary from the management side.</Text>
                 </Grid.Col>
               </Grid>
             </Container>
           </BackgroundImage>
-        </Box>
-        <Box component='div'>
           <Container>
             <Center>
               <Text className={`${classes.heading} ${classes.secondaryText} ${classes.secondaryUnderline}`} mt={50}>Get In Touch</Text>
@@ -248,10 +255,7 @@ const Home: NextPage = () => {
               </Grid.Col>
             </Grid>
           </Container>
-        </Box>
-        <Box>
           <FooterLinks data={footerData}/>
-        </Box>
       </MainLayout>
     </>
   )
